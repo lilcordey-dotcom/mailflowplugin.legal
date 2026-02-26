@@ -1,0 +1,139 @@
+Deno.serve(async (req) => {
+  const html = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Politique de Confidentialité – MailFlow Assistant</title>
+  <style>
+    body { font-family: Inter, system-ui, sans-serif; max-width: 860px; margin: 0 auto; padding: 40px 24px; color: #333; line-height: 1.7; }
+    h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
+    h2 { font-size: 1.4rem; font-weight: 600; margin-top: 40px; margin-bottom: 12px; }
+    h3 { font-size: 1.1rem; font-weight: 600; margin-top: 24px; margin-bottom: 8px; }
+    p { margin-bottom: 12px; }
+    ul { padding-left: 24px; margin-bottom: 12px; }
+    li { margin-bottom: 6px; }
+    a { color: #3B82F6; }
+    .date { color: #888; font-size: 0.9rem; margin-bottom: 32px; }
+  </style>
+</head>
+<body>
+  <h1>Politique de Confidentialité – MailFlow Assistant</h1>
+  <p class="date">Dernière mise à jour : 20 février 2026</p>
+
+  <p>Cette Politique de Confidentialité explique comment MailFlow Assistant collecte, utilise et protège vos données, en distinguant le site web et l'extension Chrome, conformément au RGPD et aux lois suisses.</p>
+
+  <h2>1. Responsable du traitement</h2>
+  <p>Le responsable du traitement des données est :</p>
+  <p><strong>Mail Flow Assistant</strong><br>Représenté par : Lilian Cordey et Eliott Dafflon<br>Email : <a href="mailto:center@mailflowplugin.com">center@mailflowplugin.com</a></p>
+
+  <h2>2. Données collectées et traitées</h2>
+
+  <h3>2.1 Site web / compte utilisateur</h3>
+  <p>Ces données sont collectées via le site MailFlow :</p>
+  <ul>
+    <li>Adresse email (identifiant unique)</li>
+    <li>Nom complet</li>
+    <li>Mot de passe du compte (chiffré et sécurisé)</li>
+    <li>Date de création et de dernière connexion</li>
+    <li>Informations d'abonnement et de paiement (via Stripe, jamais stockées sur nos serveurs)</li>
+  </ul>
+  <p><strong>Hébergement et infrastructure :</strong> Base44</p>
+  <p><strong>Finalités :</strong> gestion du compte, abonnements, paiements, communication, prévention des fraudes, respect des obligations légales.</p>
+
+  <h3>2.2 Extension Chrome / traitement Gmail</h3>
+  <p>L'extension traite uniquement les emails et métadonnées Gmail pour générer réponses, résumés et prioriser les messages :</p>
+  <ul>
+    <li>Emails et métadonnées Gmail : thread ID, expéditeur, objet, niveau de priorité</li>
+    <li>Session ID : stocké dans Chrome local storage et Firestore (7 jours côté serveur)</li>
+    <li>JWT (JSON Web Token) : stocké localement, valable 7 jours</li>
+    <li>Refresh token : stocké côté serveur dans Secret Manager, permanent, pour régénérer le JWT (jamais accessible côté client)</li>
+    <li>Données temporaires : certaines métadonnées peuvent être stockées temporairement sur Firestore pour générer réponses, résumés ou suivre les priorités</li>
+  </ul>
+  <p><strong>Infrastructure backend :</strong></p>
+  <ul>
+    <li>Stockage et traitement : Firestore et Cloud Run</li>
+    <li>Secrets et tokens : Secret Manager</li>
+  </ul>
+  <p><strong>Important :</strong></p>
+  <ul>
+    <li>Aucun mot de passe Gmail n'est collecté.</li>
+    <li>Les emails sont traités localement côté client ; aucune personne n'accède aux contenus.</li>
+    <li>Aucune donnée d'email n'est stockée de façon permanente côté serveur, sauf certaines métadonnées temporaires pour le fonctionnement de l'extension.</li>
+  </ul>
+
+  <h2>3. Base légale du traitement</h2>
+  <ul>
+    <li>Exécution du contrat (fourniture du service, gestion du compte)</li>
+    <li>Respect des obligations légales (facturation, comptabilité)</li>
+    <li>Intérêt légitime de MailFlow Assistant (sécurité, amélioration du service)</li>
+  </ul>
+
+  <h2>4. Partage et transferts de données</h2>
+  <p>Les données ne sont jamais vendues ou louées à des tiers.</p>
+  <p>Partage limité à :</p>
+  <ul>
+    <li>Stripe (paiements)</li>
+    <li>Base44 (hébergement du site web)</li>
+    <li>Firestore et Cloud Run pour le fonctionnement de l'extension</li>
+    <li>Autorités compétentes en cas d'obligation légale</li>
+  </ul>
+  <p>Certains prestataires peuvent traiter des données hors de Suisse ou UE, avec garanties conformes au RGPD.</p>
+
+  <h2>5. Sécurité</h2>
+  <p><strong>Extension :</strong></p>
+  <ul>
+    <li>Communications chiffrées via HTTPS</li>
+    <li>Authentification sécurisée via session ID, JWT et refresh token</li>
+  </ul>
+  <p><strong>Site :</strong></p>
+  <ul>
+    <li>Protection contre attaques par force brute et accès non autorisé</li>
+    <li>Surveillance et journalisation des accès</li>
+    <li>Mots de passe du site chiffrés avec des algorithmes modernes</li>
+  </ul>
+  <p><strong>Remarque :</strong> aucune solution technique n'est infaillible.</p>
+
+  <h2>6. Durée de conservation</h2>
+  <p><strong>Site web</strong></p>
+  <ul>
+    <li>Données de compte : tant que le compte est actif</li>
+    <li>Données d'abonnement : 5 ans après résiliation (obligations légales)</li>
+    <li>Logs de sécurité : 12 mois maximum</li>
+  </ul>
+  <p><strong>Extension</strong></p>
+  <ul>
+    <li>Session ID : stocké indéfiniment dans local storage jusqu'à suppression manuelle ou désinstallation de l'extension. 7 jours côté serveur (Firestore)</li>
+    <li>JWT : stocké indéfiniment dans local storage jusqu'à suppression manuelle ou désinstallation de l'extension mais expire après 7 jours</li>
+    <li>Refresh token : permanent côté serveur</li>
+    <li>Emails : non stockés ; certaines métadonnées temporairement conservées pour fonctionnement de l'extension</li>
+  </ul>
+
+  <h2>7. Droits de l'utilisateur</h2>
+  <p>Vous pouvez :</p>
+  <ul>
+    <li>Accéder, rectifier ou supprimer vos données personnelles (site web et extension)</li>
+    <li>Obtenir la portabilité des données</li>
+    <li>Limiter ou vous opposer au traitement</li>
+  </ul>
+  <p>Pour toute demande : <a href="mailto:center@mailflowplugin.com">center@mailflowplugin.com</a></p>
+  <p><strong>Remarque extension :</strong> la désinstallation ne supprime pas automatiquement les métadonnées côté backend ; contactez le support pour suppression complète.</p>
+
+  <h2>8. Modifications de la politique</h2>
+  <p>La Politique peut être mise à jour pour refléter des changements techniques ou légaux.</p>
+  <p>Les modifications sont publiées sur la page officielle de l'extension ou dans la description du Chrome Web Store.</p>
+  <p>L'utilisation continue vaut acceptation de la politique mise à jour.</p>
+
+  <h2>9. Contact</h2>
+  <p>Email : <a href="mailto:center@mailflowplugin.com">center@mailflowplugin.com</a></p>
+</body>
+</html>`;
+
+  return new Response(html, {
+    status: 200,
+    headers: {
+      'Content-Type': 'text/html; charset=utf-8',
+      'Access-Control-Allow-Origin': '*',
+    },
+  });
+});

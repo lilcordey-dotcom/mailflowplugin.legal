@@ -1,0 +1,127 @@
+Deno.serve(async (req) => {
+  const html = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditions Générales d'Utilisation – Mail Flow Assistant</title>
+  <style>
+    body { font-family: Inter, system-ui, sans-serif; max-width: 860px; margin: 0 auto; padding: 40px 24px; color: #333; line-height: 1.7; }
+    h1 { font-size: 2rem; font-weight: 700; margin-bottom: 8px; }
+    h2 { font-size: 1.4rem; font-weight: 600; margin-top: 40px; margin-bottom: 12px; }
+    p { margin-bottom: 12px; }
+    ul { padding-left: 24px; margin-bottom: 12px; }
+    li { margin-bottom: 6px; }
+    a { color: #3B82F6; }
+    .date { color: #888; font-size: 0.9rem; margin-bottom: 32px; }
+    .intro { margin-bottom: 32px; }
+  </style>
+</head>
+<body>
+  <h1>Conditions Générales d'Utilisation – Mail Flow Assistant</h1>
+  <p class="date">Date d'entrée en vigueur : 14 février 2026</p>
+  <p class="intro">L'installation et l'utilisation de l'extension Chrome Mail Flow Assistant (ci-après « l'Extension ») constitue un accord légal entre l'utilisateur (« vous ») et le fournisseur (« nous »).</p>
+
+  <h2>1. Identification de l'éditeur</h2>
+  <p>Mail Flow Assistant est édité par :<br>Responsables : Lilian Cordey et Eliott Dafflon<br>Email de contact : <a href="mailto:center@mailflowplugin.com">center@mailflowplugin.com</a></p>
+
+  <h2>2. Objet</h2>
+  <p>Les présentes CGU régissent l'accès et l'utilisation de l'Extension ainsi que du site web associé. Toute utilisation implique l'acceptation pleine et entière des présentes CGU.</p>
+
+  <h2>3. Acceptation des CGU</h2>
+  <p>Les CGU sont réputées acceptées par l'utilisateur :</p>
+  <ul>
+    <li>Lors de l'installation de l'Extension, ou</li>
+    <li>Lors de la souscription à un abonnement payant.</li>
+  </ul>
+  <p>Si vous n'acceptez pas ces CGU, vous ne devez pas utiliser l'Extension.</p>
+
+  <h2>4. Abonnement</h2>
+  <p>Le Service peut être proposé sous forme d'abonnement mensuel. L'abonnement est renouvelé automatiquement jusqu'à résiliation. Vous pouvez annuler à tout moment via le portail client Stripe. Aucun remboursement n'est accordé pour les périodes entamées ou déjà payées. Tout échec de paiement peut entraîner la suspension automatique de l'accès.</p>
+
+  <h2>5. Compte utilisateur</h2>
+  <p>Un compte = un utilisateur unique. Le partage est strictement interdit. Vous êtes responsable de la confidentialité de vos identifiants. Toute utilisation non autorisée doit être signalée immédiatement. Vous assumez l'intégralité des conséquences de toute activité effectuée depuis votre compte.</p>
+
+  <h2>6. Accès au Service</h2>
+  <p>L'Extension nécessite une authentification valide (session ID, JWT et refresh token). L'accès est automatiquement suspendu en cas d'abonnement inactif ou impayé. L'Extension ne fonctionne que pour les utilisateurs disposant d'un compte et d'un abonnement actif.</p>
+
+  <h2>7. Utilisations interdites</h2>
+  <p>Il est strictement interdit d'utiliser l'Extension pour :</p>
+  <ul>
+    <li>Toute activité illégale ou frauduleuse.</li>
+    <li>L'envoi de spam ou d'e-mails non sollicités.</li>
+    <li>La violation des règles de Google, Gmail ou Chrome.</li>
+    <li>Toute automatisation abusive pouvant nuire à des tiers ou à l'infrastructure.</li>
+    <li>Accéder, copier ou divulguer des e-mails d'autrui sans autorisation.</li>
+  </ul>
+  <p>Vous êtes seul responsable de l'usage que vous faites de l'Extension.</p>
+
+  <h2>8. Suspension et résiliation</h2>
+  <p>Nous nous réservons le droit de suspendre ou résilier tout compte en cas de :</p>
+  <ul>
+    <li>Partage de compte, usage abusif, violation des CGU.</li>
+    <li>Activité frauduleuse ou suspecte.</li>
+    <li>Non-paiement ou échec de paiement.</li>
+  </ul>
+  <p>Aucun remboursement ne sera accordé en cas de suspension ou résiliation.</p>
+
+  <h2>9. Traitement et stockage des données</h2>
+  <p><strong>Données collectées et utilisées :</strong></p>
+  <ul>
+    <li>Session ID : Chrome local storage et Firestore (7 jours côté serveur).</li>
+    <li>JWT : stocké localement, expire après 7 jours.</li>
+    <li>Refresh token : stocké côté serveur dans Secret Manager (permanent).</li>
+    <li>E-mails et métadonnées : analysés pour générer réponses, résumés et priorisation. Certaines métadonnées sont stockées temporairement sur Firestore.</li>
+  </ul>
+  <p><strong>Sécurité :</strong></p>
+  <ul>
+    <li>Toutes les communications avec le backend sont chiffrées via HTTPS.</li>
+    <li>Aucune personne ne consulte manuellement vos e-mails.</li>
+    <li>Nous mettons en œuvre des mesures de sécurité raisonnables, mais aucune solution technique n'est infaillible.</li>
+  </ul>
+  <p><strong>Fuites ou incidents de sécurité :</strong></p>
+  <p>Nous déclinons toute responsabilité pour toute perte, divulgation ou accès non autorisé aux données, y compris résultant de piratage, vulnérabilité, erreur humaine, défaut technique ou force majeure. L'utilisateur reconnaît et accepte que l'utilisation de l'Extension se fait à ses propres risques. Nous pouvons, mais ne sommes pas obligés de, notifier les utilisateurs ou autorités compétentes en cas d'incident.</p>
+  <p><strong>Suppression des données :</strong></p>
+  <p>La désinstallation de l'Extension n'entraîne pas la suppression automatique des données côté serveur.</p>
+
+  <h2>10. Contenus générés par intelligence artificielle</h2>
+  <p>Les suggestions générées sont fournies à titre d'assistance et peuvent contenir des erreurs. Vous devez relire et valider tout contenu avant envoi. Nous ne sommes pas responsables du contenu des e-mails envoyés ni de leurs conséquences.</p>
+
+  <h2>11. Responsabilité</h2>
+  <p>L'Extension est fournie « telle quelle » et « selon disponibilité ». Nous ne serons en aucun cas responsables pour :</p>
+  <ul>
+    <li>Perte de données, dommages directs ou indirects, pertes financières, atteinte à la réputation ou tout préjudice lié à l'utilisation ou à un incident de sécurité.</li>
+  </ul>
+  <p>L'utilisateur assume l'intégralité des risques liés à l'utilisation de l'Extension et accepte que nous ne pouvons garantir l'inviolabilité des données, ni la continuité du service.</p>
+
+  <h2>12. Dépendance aux services tiers</h2>
+  <p>L'Extension dépend de Google Chrome, Gmail et autres services tiers. Nous ne sommes pas responsables des interruptions, modifications ou défaillances de ces services.</p>
+
+  <h2>13. Propriété intellectuelle</h2>
+  <p>Tout le code, interface, backend, contenu généré et éléments visuels sont notre propriété exclusive. Toute reproduction, modification ou redistribution non autorisée est interdite.</p>
+
+  <h2>14. Force majeure</h2>
+  <p>Nous ne pouvons être tenus responsables d'événements hors de notre contrôle : pannes d'infrastructure, catastrophes naturelles, décisions gouvernementales, attaques informatiques.</p>
+
+  <h2>15. Âge minimum</h2>
+  <p>L'utilisation de l'Extension est réservée aux personnes âgées d'au moins 16 ans.</p>
+
+  <h2>16. Modifications des CGU</h2>
+  <p>Nous nous réservons le droit de modifier ces CGU à tout moment. Les modifications entrent en vigueur dès leur publication. L'utilisation continue de l'Extension vaut acceptation des CGU mises à jour.</p>
+
+  <h2>17. Droit applicable et juridiction</h2>
+  <p>Ces CGU sont régies par le droit suisse. Tout litige sera soumis à la juridiction compétente en Suisse.</p>
+
+  <h2>18. Contact</h2>
+  <p>Email : <a href="mailto:center@mailflowplugin.com">center@mailflowplugin.com</a></p>
+</body>
+</html>`;
+
+  return new Response(html, {
+    status: 200,
+    headers: {
+      'Content-Type': 'text/html; charset=utf-8',
+      'Access-Control-Allow-Origin': '*',
+    },
+  });
+});
